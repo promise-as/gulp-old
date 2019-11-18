@@ -36,15 +36,14 @@ gulp.task('js', function() {
   .pipe(livereload());
 });
 
-gulp.task('watch', ['html', 'css', 'js'], function() {
+gulp.task('default', ['html', 'css', 'js'], function() {
   livereload.listen();
   connect.server({
     root: 'dist',
-    port: 8000,
-    host: '192.168.0.123',
+    port: 5000,
     livereload: true
   });
-  open('192.168.0.123:8000');
+  open('http://localhost:5000');
   gulp.watch('./src/*.html', ['html']);
   gulp.watch('src/sass/*.scss', ['css']);
   gulp.watch('src/js/*.js', ['js']);
